@@ -1,14 +1,13 @@
 ﻿try {
     var uploadedCount = SimulateUpload();
-    Console.WriteLine($"已成功上傳{uploadedCount}筆");
-    Thread.Sleep(2000);
+    ShowMessage($"已成功上傳{uploadedCount}筆");
 }
 catch (Exception ex) {
-    Console.ForegroundColor = ConsoleColor.DarkRed;
-    Console.WriteLine(ex.Message);
-    Console.ReadLine();
+    ShowMessage(ex.Message);
 }
-
+void ShowMessage(string msg) {
+    System.Windows.Forms.MessageBox.Show(msg, "上傳作業");
+}
 int SimulateUpload() {
     //模擬上傳作業
     var rnd = new Random();
